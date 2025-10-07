@@ -15,7 +15,6 @@
             --card-text: #333;
         }
 
-       
         .navbar-custom {
             background-color: var(--primary-bg) !important;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -27,6 +26,7 @@
         .navbar-brand, .nav-link {
             color: var(--text-light) !important;
         }
+
         .nav-link:hover {
             color: #ffc107 !important; 
         }
@@ -37,11 +37,13 @@
             padding: 4rem 0;
             margin-top: 0;
         }
+
         .section-light {
             background-color: #ffffff;
             color: #333;
             padding: 4rem 0;
         }
+
         .section-title {
             font-size: 2.5rem;
             font-weight: 700;
@@ -79,6 +81,7 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.4); 
         }
+
         .hero-content {
             position: relative;
             z-index: 10;
@@ -96,8 +99,7 @@
         .footer-dark-custom {
             background-color: #1e1e1e;
             color: #f8f9fa;
-            /* Iššokimo efektas */
-            animation: slideUp 0.8s ease-out 0.5s forwards; /* Paleidžiama po trumpos pauzės */
+            animation: slideUp 0.8s ease-out 0.5s forwards;
             opacity: 0; 
         }
 
@@ -131,7 +133,6 @@
             color: #0d6efd; /* Nuorodų spalva */
         }
 
-        /* Mobiliesiems įrenginiams (Mobile responsiveness) */
         @media (max-width: 768px) {
             .hero-section {
                 height: 50vh;
@@ -140,7 +141,7 @@
             .section-title {
                 font-size: 2rem;
             }
-            /* Kontaktų centravimas mobiliesiems */
+
             .footer-contacts .row > div {
                 text-align: center !important;
                 margin-bottom: 1rem;
@@ -154,21 +155,30 @@
         
 
             .card-custom {
-            /* Suapvalinti kampai */
             border-radius: 0.5rem;
-            /* Animacija */
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            /* Užtikrina, kad animacija nebūtų nukirpta */
             overflow: hidden; 
-            /* Kortelės aukštis, kad visos būtų vienodos */
             height: 100%;
         }
 
         .card-custom:hover {
-            /* Transformacija: šiek tiek padidina kortelę */
+            /* šiek tiek padidina kortelę */
             transform: scale(1.03); 
             /* Prideda šešėlį */
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        
+        /* MYGTUKO ANIMACIJA */
+        .btn-primary {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+            transform: scale(1.05); /* Padidinimas užvedus pelę */
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
         }
 
     </style>
@@ -182,7 +192,7 @@
   <div class="container">
     <a class="navbar-brand me-auto" href="#">Kelionių Agentūra</a>
     
-      <div class="offcanvas offcanvas-end text-bg-dark offcanvas-dark bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas offcanvas-end text-bg-dark offcanvas-dark bg-dark" tabindex="-1" id="offcanvasNavbar">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Kelionių Agentūra</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -199,27 +209,18 @@
             <a class="nav-link mx-lg-2" href="login.html" >
               Tinklaraštis
             </a>
+            </li>
              <li class="nav-item dropdown bg-dark text-light">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Pasiūlymai/Rekomendacijos</a>
-                   <ul class="dropdown-menu">
-                    <a class="dropdown-item text-light" href="#kelioniu-pasiulymai">Kelionių pasiūlymai</a>
-                </li>
-                
-                <li class="nav-item">
-                    <a class="dropdown-item text-light" href="#autonuoma">Autonuoma</a>
-                </li>
-                
-                <li class="nav-item">
-                    <a class="dropdown-item text-light" href="#patarimai">Patarimai keliaujantiems</a>
-                </li>
-                
-                <li class="nav-item">
-                    <a class="dropdown-item text-light" href="#zurnalas">Kelionių žurnalas</a>
-                </li>
+                    <ul class="dropdown-menu">
+                    <li><a class="dropdown-item text-light" href="#kelioniu-pasiulymai">Kelionių pasiūlymai</a></li>
+                    <li><a class="dropdown-item text-light" href="#autonuoma">Autonuoma</a></li>
+                    <li><a class="dropdown-item text-light" href="#patarimai">Patarimai keliaujantiems</a></li>
+                    <li><a class="dropdown-item text-light" href="#zurnalas">Kelionių žurnalas</a></li>
         </ul>
       </div>
     </div>
-        <a href="login.html" type="submit" class="btn btn-primary">Prisijungti</a>
+                <a href="login.html" class="btn btn-primary d-none d-lg-block">Prisijungti</a>
        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="togglenav">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -235,15 +236,13 @@ text-white
 flex-column">
     <h1>Sveiki atvykę į mūsų kelionių agentūrą!</h1>
     <p>Planuokite savo nuotykius kartu su mumis.</p>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/video_id" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/video_id" allowfullscreen></iframe>
 </div>
 </section>
 
 <section id="kelioniu-pasiulymai" class="section-light">
-            <div class="container py-5">
-                <h2 class="section-title text-dark pt-1 mb-2">Kelionių Pasiūlymai</h2>
-
-                
+<div class="container py-5">
+<h2 class="section-title text-dark pt-1 mb-2">Kelionių Pasiūlymai</h2>
 <div class="row g-4">
    <div class="col-12 col-sm-6 col-md-4">
     <div class="card card-custom shadow-lg h-100 rounded-lg">
@@ -281,12 +280,12 @@ flex-column">
             <div class="mt-auto d-flex justify-content-between align-items-center">
             <span class="fw-bold fs-4 text-success">€1200</span>
             <a href="#" class="btn btn-primary">Detaliau</a>
-                     </div>
                 </div>
-             </div>
+                </div>
+                </div>
+            </div>
+            </div>
         </div>
-    </div>
-</div>
 </section>
 
 <section id="autonuoma" class="section-primary">
@@ -393,7 +392,7 @@ flex-column">
     <header>
     <img src="./photos/flags_PNG14641-2851002825.jpg" class="card-img-top" alt="Straipsnio nuotrauka">
     </header>
-        <main class="card-body">
+        <div class="card-body">
             <h5 class="card-title text-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque maxime, itaque inventore asperiores dolore porro.</h5>
             <h6 class="text-muted">I. Lorem ipsum dolor sit amet.</h6>
             <p class="card-text text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum amet eius totam quisquam. <strong>Lorem, ipsum dolor.</strong>. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum?</p>         
@@ -403,7 +402,7 @@ flex-column">
             <p class="mb-0 fst-italic">"Lorem ipsum dolor sit amet consectetur adipisicing elit."</p>
             </blockquote>
             <span class="d-none">pan: papildomas turinys</span>
-            </main>
+        </div>
             <footer class="card-footer bg-light">
             <p class="card-text text-secondary mb-0"><small>Paskelbta: 2025-09-01</small></p>
         </footer>
@@ -416,7 +415,7 @@ flex-column">
     <header>
     <img src="./photos/800px-Flag_of_Italy.svg-2996314697.jpg" class="card-img-top" alt="Straipsnio nuotrauka">
     </header>
-    <main class="card-body">
+    <div class="card-body">
         <h5 class="card-title text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5>
         <h6 class="text-muted">I. Lorem ipsum dolor sit amet consectetur adipisicing.</h6>
         <p class="card-text text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, veniam fugiat? <em>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</em></p>
@@ -426,7 +425,7 @@ flex-column">
         <p class="mb-0 fst-italic">"Lorem ipsum dolor sit amet consectetur adipisicing elit."</p>
         </blockquote>
     <span class="d-none">pan: papildomas turinys</span>
-        </main>
+    </div>
         <footer class="card-footer bg-light">
         <p class="card-text text-secondary mb-0"><small>Paskelbta: 2025-08-15</small></p>
         </footer>
@@ -439,7 +438,7 @@ flex-column">
     <header>
         <img src="./photos/flag_of_brazil.jpg" class="card-img-top" alt="Straipsnio nuotrauka">
     </header>
-        <main class="card-body">
+        <div class="card-body">
         <h5 class="card-title text-dark">Lorem ipsum dolor sit amet consectetur adipisicing.</h5>
         <h6 class="text-muted">I. Lorem ipsum dolor sit.</h6>
         <p class="card-text text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam. Lorem ipsum dolor sit amet <strong>consectetur adipisicing elit.</strong> Repudiandae, sequi!</p> 
@@ -449,7 +448,7 @@ flex-column">
         <p class="mb-0 fst-italic">"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, voluptas."</p>
     </blockquote>
         <span class="d-none">pan: papildomas turinys</span>
-    </main>
+</div>
         <footer class="card-footer bg-light">
         <p class="card-text text-secondary mb-0"><small>Paskelbta: 2025-08-01</small></p>
         </footer>
@@ -462,7 +461,7 @@ flex-column">
     <header>
     <img src="./photos/thailand-flag-600x400-2476419627.jpg" class="card-img-top" alt="Straipsnio nuotrauka">
     </header>
-    <main class="card-body">
+    <div class="card-body">
     <h5 class="card-title text-dark">Lorem ipsum dolor sit amet consectetur.</h5>
     <h6 class="text-muted">I. Lorem ipsum dolor sit.</h6>
     <p class="card-text text-secondary">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime, nulla ratione. <strong>Lorem ipsum dolor sit amet.</strong>, lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
@@ -472,7 +471,7 @@ flex-column">
         <p class="mb-0 fst-italic">"Lorem ipsum dolor sit amet consectetur adipisicing.."</p>
     </blockquote>
     <span class="d-none">pan: papildomas turinys</span>
-    </main>
+</div>
     <footer class="card-footer bg-light">
         <p class="card-text text-secondary mb-0"><small>Paskelbta: 2025-07-20</small></p>
             </footer>
@@ -481,6 +480,7 @@ flex-column">
         </div>
     </div>
 </section>
+
 
 
 
@@ -503,7 +503,7 @@ flex-column">
             <div class="col-md-6">
                 <h5>Mūsų buvimo vieta</h5>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2306.307144989254!2d25.274190893867345!3d54.68662250324002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dd9410336de461%3A0xb4482aa689a0dd49!2sJogailos%20g.%204%2C%20Vilnius%2C%2001402%20Vilniaus%20m.%20sav.!5e0!3m2!1slt!2slt!4v1759064062752!5m2!1slt!2slt" 
-                width="100%" height="200" style="border:0; border-radius: 0.5rem;" allowfullscreen="" loading="lazy"></iframe>
+                width="500" height="200" style="border:0; border-radius: 0.5rem;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
 
